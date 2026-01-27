@@ -11,44 +11,60 @@
     <div class="container " >
     <h2 class="mb-3 text-center">Student Data</h2>
     
-    <form class="mb-5 needs-validation" novalidate >
+        <form class="mb-5 needs-validation" novalidate>
+
         <div class="col-md-6 m-auto">
-            <label for="name" class="form-label">Name : </label>
-            <input type="text" name="" id="name" class="form-control" required>
-             <div class="invalid-feedback">
-                Please provide a valid Name.
-             </div><br>
-        </div>
-      
-        <div class="col-md-6 m-auto">
-            <label for="rollnumber" class="form-label ">RollNumber : </label>
-            <input type="number" required class="form-control" id="rollnumber" required>
+            <label for="name" class="form-label">Name :</label>
+            <input type="text"
+                id="name"
+                class="form-control"
+                required>
             <div class="invalid-feedback">
-                Please provide a valid RollNumber.
-             </div><br>
+            Please provide a valid Name.
+            </div><br>
+        </div>
+
+        <div class="col-md-6 m-auto">
+            <label for="rollnumber" class="form-label">RollNumber :</label>
+            <input type="number"
+                id="rollnumber"
+                class="form-control"
+                required>
+            <div class="invalid-feedback">
+            Please provide a valid RollNumber.
+            </div><br>
         </div>
 
         <div class="col-md-6 m-auto">
             <label for="sub1" class="form-label">Subject 1 Marks:</label>
-            <input type="number" id="sub1" required class="form-control" required>
+            <input type="number"
+                id="sub1"
+                class="form-control"
+                required>
             <div class="invalid-feedback">
-                    Please provide a valid Marks.
+            Please provide valid Marks.
             </div><br>
         </div>
 
         <div class="col-md-6 m-auto">
             <label for="sub2" class="form-label">Subject 2 Marks:</label>
-            <input type="number" id="sub2" required class="form-control" required>
+            <input type="number"
+                id="sub2"
+                class="form-control"
+                required>
             <div class="invalid-feedback">
-                    Please provide a valid Marks.
+            Please provide valid Marks.
             </div><br>
         </div>
 
-        <div class="col-md-6 m-auto" >
-            <label class="form-label" for="sub3">Subject 3 Marks:</label>
-            <input type="number" id="sub3" required class="form-control" required>
+        <div class="col-md-6 m-auto">
+            <label for="sub3" class="form-label">Subject 3 Marks:</label>
+            <input type="number"
+                id="sub3"
+                class="form-control"
+                required>
             <div class="invalid-feedback">
-                    Please provide a valid Marks.
+            Please provide valid Marks.
             </div><br>
         </div>
 
@@ -56,7 +72,25 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
-    </form>
+        </form>
+
+    <div id="studentCard" class="card col-md-6 m-auto mb-4 d-none">
+    <div class="card-body">
+        <h5 class="card-title" id="cardName"></h5>
+        <p class="card-text">
+            <strong>Roll No:</strong> <span id="cardRoll"></span><br>
+            <strong>Subject 1:</strong> <span id="cardSub1"></span><br>
+            <strong>Subject 2:</strong> <span id="cardSub2"></span><br>
+            <strong>Subject 3:</strong> <span id="cardSub3"></span><br>
+            <strong>Total:</strong> <span id="cardTotal"></span><br>
+            <strong>Average:</strong> <span id="cardAverage"></span><br>
+            <strong>Result:</strong> <span id="cardResult"></span><br>
+            <strong>Grade:</strong> <span id="cardGrade"></span>
+        </p>
+        <button class="btn btn-secondary btn-sm" onclick="closeCard()">Close</button>
+    </div>
+</div>
+
     <table class="table table-bordered table-striped mt-4">
     <thead class="table-dark">
         <tr>
