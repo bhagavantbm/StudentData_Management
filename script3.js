@@ -107,19 +107,27 @@ class StudentManager {
         </tr>`;
 
         if (this.editRowRef) {
-            this.editRowRef.innerHTML = rowHTML;
-            this.editRowRef = null;
+        this.editRowRef.innerHTML = rowHTML;
+        this.editRowRef = null;
+
+            UIHelper.showMessage("Student updated ", "info");   
         } else {
             this.tableBody.innerHTML += rowHTML;
+
+            UIHelper.showMessage("Student added successfully ", "success");  
         }
+
 
         document.querySelector("form").reset();
     }
 
     deleteRow(button, roll) {
-        button.closest("tr").remove();
-        this.removeRoll(roll);
-    }
+    button.closest("tr").remove();
+    this.removeRoll(roll);
+
+    UIHelper.showMessage("Student deleted 🗑️", "warning");  
+}
+
 
     editRow(button) {
         this.editRowRef = button.closest("tr");
@@ -160,7 +168,7 @@ class Auth {
 
         if (u === "oops" && p === "1234") {
             localStorage.setItem("isLoggedIn", "true");
-            window.location.href = "./index .html";
+            window.location.href = "./index.html";
         } else {
             document.getElementById("error").innerText = "Invalid credentials";
         }
@@ -171,19 +179,39 @@ class Auth {
         window.location.href = "./login.html";
     }
 }
+class UIHelper {
+    static showMessage(text, type) {
+        const msgBox = document.getElementById("msgBox");
+
+        if (!msgBox) return; // safety check
+
+        msgBox.innerText = text;
+        msgBox.className = `alert alert-${type}`;
+        msgBox.classList.remove("d-none");
+
+        setTimeout(() => {
+            msgBox.classList.add("d-none");
+        }, 2000);
+    }
+}
+
 
 
 (() => {
     'use strict';
     const form = document.querySelector('.needs-validation');
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        if (form.checkValidity()) {
-            app.saveStudent();
-        }
-        form.classList.add('was-validated');
-    });
+    if (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            if (form.checkValidity()) {
+                app.saveStudent();
+            }
+
+            form.classList.add('was-validated');
+        });
+    }
 })();
 
 
