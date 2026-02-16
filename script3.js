@@ -168,7 +168,7 @@ class Auth {
 
         if (u === "admin" && p === "1234") {
             localStorage.setItem("isLoggedIn", "true");
-            window.location.href = "./index.html";
+            window.location.href = "./dashboard.html";
         } else {
             document.getElementById("error").innerText = "Invalid credentials";
         }
@@ -176,7 +176,7 @@ class Auth {
 
     static logout() {
         localStorage.removeItem("isLoggedIn");
-        window.location.href = "./login.html";
+        window.location.href = "./index.html";
     }
 }
 class UIHelper {
