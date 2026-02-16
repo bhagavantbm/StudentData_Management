@@ -166,7 +166,7 @@ class Auth {
         const u = document.getElementById("username").value;
         const p = document.getElementById("password").value;
 
-        if (u === "oops" && p === "1234") {
+        if (u === "admin" && p === "1234") {
             localStorage.setItem("isLoggedIn", "true");
             window.location.href = "./index.html";
         } else {
